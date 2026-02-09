@@ -37,7 +37,21 @@ export const HomePage = () => {
 
         <div className="max-w-7xl mx-auto px-4 py-20 relative z-10">
           <AnimatedContainer>
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            {/* Logo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center mb-12"
+            >
+              <img
+                src="/images/logo.jpg"
+                alt="TOP SPEED Logo"
+                className="h-24 md:h-32 object-contain filter drop-shadow-2xl"
+              />
+            </motion.div>
+
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight text-center">
               TOP SPEED
             </h1>
             <p className="text-2xl text-gray-300 mb-8 max-w-2xl">
