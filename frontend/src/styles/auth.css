@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
+
+/* Scope all auth styles to .auth-section to avoid affecting other pages */
+.auth-section { font-family: 'Quicksand', sans-serif; }
+.auth-section * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.auth-section{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;gap:2px;flex-wrap:wrap;overflow:hidden;background:#000}
+.auth-section span{position:relative;display:block;width:calc(6.25vw - 2px);height:calc(6.25vw - 2px);background:#181818;z-index:2;transition:1.5s}
+.auth-section::before{content:'';position:absolute;width:100%;height:100%;background:linear-gradient(#000,#e95f30,#000);animation:auth-animate 5s linear infinite}
+@keyframes auth-animate{0%{transform:translateY(-100%)}100%{transform:translateY(100%)}}
+.auth-section span:hover{background:#e95f30;transition:0s}
+
+.auth-section .signin{position:absolute;width:400px;background:#222;z-index:1000;display:flex;justify-content:center;align-items:center;padding:40px;border-radius:4px;box-shadow:0 15px 35px rgba(0,0,0,0.5)}
+.auth-section .signin .content{position:relative;width:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;gap:24px}
+.auth-section .signin .content h2{font-size:2em;color:#e95f30;text-transform:uppercase}
+.auth-section .form{width:100%;display:flex;flex-direction:column;gap:18px}
+.auth-section .inputBx{position:relative;width:100%}
+.auth-section .inputBx input{width:100%;background:#333;border:none;outline:none;padding:18px 10px 8px;border-radius:4px;color:#fff;font-weight:500;font-size:1em}
+.auth-section .inputBx i{position:absolute;left:0;padding:12px 10px;color:#aaa;transition:0.5s;pointer-events:none}
+.auth-section .inputBx input:focus ~ i, .auth-section .inputBx input:valid ~ i{transform:translateY(-7.5px);font-size:.8em;color:#fff}
+.auth-section .links{position:relative;width:100%;display:flex;justify-content:space-between}
+.auth-section .links a{color:#fff;text-decoration:none}
+.auth-section .links a:nth-child(2){color:#e95f30;font-weight:600}
+.auth-section .inputBx input[type="submit"]{padding:10px;background:#e95f30;color:#111;font-weight:600;font-size:1.05em;letter-spacing:.05em;cursor:pointer;border-radius:6px}
+.auth-section .error-box{background:rgba(153,27,27,0.15);border:1px solid rgba(220,38,38,0.4);color:#ffb3b3;padding:10px;border-radius:6px}
+.auth-section .success-box{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.2);color:#9ff0d6;padding:10px;border-radius:6px}
+
+@media (max-width:900px){.auth-section span{width:calc(10vw - 2px);height:calc(10vw - 2px)}}
+@media (max-width:600px){.auth-section .signin{width:92%;padding:24px}.auth-section .signin .content h2{font-size:1.5em}}

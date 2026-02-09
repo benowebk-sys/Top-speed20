@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider, AuthContext } from './contexts/AuthContext';
 import { HomePage } from './pages/HomePage';
 import { CarsPage } from './pages/CarsPage';
 import { CarDetailPage } from './pages/CarDetailPage';
+import { CheckoutPage } from './pages/CheckoutPage';
 import { RecommendationsPage } from './pages/RecommendationsPage';
 import { ConfiguratorPage } from './pages/ConfiguratorPage';
 import { LoginPage } from './pages/LoginPage';
+import { SignUpPage } from './pages/SignUpPage';
+import { VerifyEmailPage } from './pages/VerifyEmailPage';
 import { AdminPage } from './pages/AdminPage';
 import './styles/globals.css';
 
@@ -15,12 +18,15 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<RequireAuth><HomePage /></RequireAuth>} />
           <Route path="/cars" element={<CarsPage />} />
           <Route path="/car-detail" element={<CarDetailPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route path="/recommendations" element={<RecommendationsPage />} />
           <Route path="/configurator" element={<ConfiguratorPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/verify-email" element={<VerifyEmailPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
@@ -30,3 +36,11 @@ function App() {
 }
 
 export default App;
+
+function RequireAuth({ children }) {
+  const { user, token } = useContext(AuthContext);
+  if (!token && !user) {
+    return <Navigate to="/signup" replace />;
+  }
+  return children;
+}

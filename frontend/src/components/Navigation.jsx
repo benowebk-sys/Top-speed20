@@ -17,11 +17,17 @@ export const Navigation = () => {
   return (
     <nav className="bg-black border-b border-gray-800 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">TS</span>
-          </div>
-          <span className="text-white font-bold text-xl hidden sm:inline">TOP SPEED</span>
+        <Link to="/" className="flex items-center gap-3">
+          {/* لوجو الشركة TOP SPEED */}
+          <svg width="40" height="40" viewBox="0 0 40 40" className="fill-current">
+            <g>
+              {/* الجزء الأحمر - TOP */}
+              <text x="0" y="24" fontSize="14" fontWeight="bold" fill="#ef4444" fontFamily="Arial, sans-serif" >TOP</text>
+              {/* الجزء الأسود - SPEED */}
+              <text x="14" y="24" fontSize="14" fontWeight="bold" fill="#000000" fontFamily="Arial, sans-serif">SPEED</text>
+            </g>
+          </svg>
+          <span className="text-white font-bold text-xl hidden sm:inline bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">TOP SPEED</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

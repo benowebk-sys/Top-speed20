@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export const apiClient = axios.create({
   baseURL: API_URL,
@@ -43,8 +43,9 @@ export const configuratorService = {
 };
 
 export const authService = {
-  login: (email, password) =>
-    apiClient.post('/auth/login', { email, password }),
-  register: (email, password) =>
-    apiClient.post('/auth/register', { email, password }),
+  login: (email, password) => apiClient.post('/auth/login', { email, password }),
+  signup: (payload) => apiClient.post('/auth/signup', payload),
+  verifyEmail: (token) => apiClient.post('/auth/verify-email', { token }),
+  forgotPassword: (email) => apiClient.post('/auth/forgot-password', { email }),
+  resetPassword: (payload) => apiClient.post('/auth/reset-password', payload),
 };

@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { connectDB } from './config/database.js';
 import { errorHandler } from './middleware/auth.js';
+import { connectDB } from './config/database.js';
 
 import authRoutes from './routes/authRoutes.js';
 import carRoutes from './routes/carRoutes.js';
@@ -28,9 +28,9 @@ app.use(
   })
 );
 
-// محاولة الاتصال بـ MongoDB (بدون إعطال البرنامج إذا فشل)
+// Connect to MongoDB
 connectDB().catch(err => {
-  console.warn('⚠️ Database initialization warning');
+  console.warn('⚠️ Database initialization warning', err?.message || '');
 });
 
 app.use('/api/auth', authRoutes);

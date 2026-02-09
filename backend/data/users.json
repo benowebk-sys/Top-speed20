@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1770508639406,
+    "name": "Test FileDB",
+    "email": "filedb.user@example.com",
+    "password": "$2a$10$vvI2w49nFuPBzCCJ0tJ1..bq58sgEJK9iSCB7n5Ohsdkb3Zc0C7UK",
+    "role": "user",
+    "isActive": true,
+    "isEmailVerified": false,
+    "verificationToken": "c954d2af15827ec2a745a0f78ffd723e5520dfc9fc85b9391b5936cd14601927",
+    "verificationTokenExpires": "2026-02-08T23:57:19.327Z",
+    "createdAt": "2026-02-07T23:57:19.407Z",
+    "updatedAt": "2026-02-07T23:57:19.407Z"
+  }
+]
